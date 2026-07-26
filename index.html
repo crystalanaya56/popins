@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carta para mi hermana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -115,7 +118,7 @@
   .letter::-webkit-scrollbar-thumb { background:linear-gradient(180deg,#d9509a,#b32e7e); border-radius:3px; }
   .envelope-container.open .letter { top:-160px; opacity:1; }
 
-  .letter h2 { color:#b32e7e; text-align:center; margin-bottom:12px; font-size:1.4em; }
+  .letter h2 { font-family:'Poppins', sans-serif; color:#b32e7e; text-align:center; margin-bottom:12px; font-size:1.3em; font-weight:700; }
   .heart-emoji { display:inline-block; animation:beat 1s infinite; }
   @keyframes beat { 0%,100%{transform:scale(1);} 25%{transform:scale(1.1);} 40%{transform:scale(1);} 60%{transform:scale(1.1);} }
 
@@ -184,7 +187,7 @@
     </div>
 
     <div class="letter">
-      <h2>Para mi hermana <span class="heart-emoji">💕</span></h2>
+      <h2>Feliz cumpleaños, hermanita. ❤️</h2>
 
       <div class="gallery" id="gallery">
         <div class="gallery-track" id="galleryTrack">
@@ -336,15 +339,10 @@
 
   /* ---------- Efecto de escritura a mano ---------- */
   const letterParagraphs = [
-    { text: "Hola hermanita, sé que no soy la persona más cursi del mundo para escribir cartas, pero hoy es tu día y se me hizo justo dejar por escrito todo lo que siento por ti, aunque luego te ande molestando como siempre jaja." },
-    { text: "No sé ni por dónde empezar, pero quiero que sepas que eres una de las personas más importantes en mi vida. Hemos crecido juntas, hemos peleado por tonterías, nos hemos apoyado en los momentos difíciles, y aunque a veces no lo digamos, sé que siempre vamos a estar la una para la otra." },
-    { text: "Admiro muchísimo la persona en la que te has convertido: tu fuerza, tu manera de enfrentar las cosas, tu forma de cuidar a los demás incluso cuando tú misma la estás pasando difícil. Eres de esas personas que hacen que todo se sienta un poco más ligero nomás con estar cerca." },
-    { text: "Gracias por todas las risas, por aguantarme cuando ando de necia, por los secretos compartidos, por los consejos que a veces pido y a veces no, pero que siempre terminan siendo justo lo que necesitaba escuchar. Gracias por ser mi compañera de vida desde que tengo memoria." },
-    { text: "Espero que este nuevo año te traiga muchísimas cosas buenas: que se te cumplan tus metas, que sigas brillando como siempre, y que nunca se te olvide lo valiosa que eres, no solo para mí, sino para todos los que tenemos la suerte de tenerte cerca." },
-    { text: "Sea lo que sea que venga, aquí voy a estar yo, para celebrar tus logros, para apoyarte en tus tropiezos, y para seguir construyendo mil recuerdos más contigo. Te quiero muchísimo, hermana, y estoy súper agradecida de que la vida nos haya puesto juntas." },
-    { text: "Feliz cumpleaños, te quiero mucho 💕", className: 'firma' },
-    { text: "Ya sabes que aunque te moleste, siempre vas a ser mi persona favorita para hacerlo.", className: 'pd', label: 'PD:' },
-    { text: "Nunca voy a dejar de presumirte como mi hermana.", className: 'pd', label: 'PD2:' }
+    { text: "Estar lejos de ti ha sido de las cosas más difíciles de habernos venido para acá, pero también me ha hecho valorarte muchísimo más." },
+    { text: "Gracias por estar siempre para mí, por cuidarme, por aguantarme incluso cuando era difícil hacerlo, por creer en mí y por ayudarme a convertirme en la persona que soy hoy. Muchas veces no te lo digo pero de verdad te admiro y te agradezco todo lo que has hecho por mí. Has sido un ejemplo en mi vida y espero que algún día pueda devolverte aunque sea un poquito de todo lo que me has dado." },
+    { text: "Aunque hoy no pueda darte un abrazo, quiero que sepas que te llevo en mi corazón todos los días. Te extraño muchísimo y no te preocupes, aunque ahorita no lo parezca la vida te va a dar muchísimas más cosas bonitas porque nadie se las merece más que tú." },
+    { text: "Gracias por ser mi hermana, te quiero infinitamente", className: 'firma' }
   ];
 
   let hasTyped = false;
