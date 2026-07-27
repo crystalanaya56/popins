@@ -336,47 +336,38 @@
   }
 
   loadYouTubeAPI();
+/* ---------- Carta (sin efecto de escritura) ---------- */
+const letterParagraphs = [
+  { text: "Estar lejos de ti ha sido de las cosas más difíciles de habernos venido para acá, pero también me ha hecho valorarte muchísimo más." },
+  { text: "Gracias por estar siempre para mí, por cuidarme, por aguantarme incluso cuando era difícil hacerlo, por creer en mí y por ayudarme a convertirme en la persona que soy hoy. Muchas veces no te lo digo pero de verdad te admiro y te agradezco todo lo que has hecho por mí. Has sido un ejemplo en mi vida y espero que algún día pueda devolverte aunque sea un poquito de todo lo que me has dado." },
+  { text: "Aunque hoy no pueda darte un abrazo, quiero que sepas que te llevo en mi corazón todos los días. Te extraño muchísimo y no te preocupes, aunque ahorita no lo parezca la vida te va a dar muchísimas más cosas bonitas porque nadie se las merece más que tú.." },
+  { text: "Gracias por ser mi hermana, te amo", className: 'firma' }
+];
 
-  /* ---------- Efecto de escritura a mano ---------- */
-  const letterParagraphs = [
-    { text: "Estar lejos de ti ha sido de las cosas más difíciles de habernos venido para acá, pero también me ha hecho valorarte muchísimo más." },
-    { text: "Gracias por estar siempre para mí, por cuidarme, por aguantarme incluso cuando era difícil hacerlo, por creer en mí y por ayudarme a convertirme en la persona que soy hoy. Muchas veces no te lo digo pero de verdad te admiro y te agradezco todo lo que has hecho por mí. Has sido un ejemplo en mi vida y espero que algún día pueda devolverte aunque sea un poquito de todo lo que me has dado." },
-    { text: "Aunque hoy no pueda darte un abrazo, quiero que sepas que te llevo en mi corazón todos los días. Te extraño muchísimo y no te preocupes, aunque ahorita no lo parezca la vida te va a dar muchísimas más cosas bonitas porque nadie se las merece más que tú.." },
-    { text: "Gracias por ser mi hermana, te amo", className: 'firma' }
-  ];
+function typeLetter(paragraphs, container) {
+  paragraphs.forEach((p, index) => {
+    const pEl = document.createElement('p');
+    pEl.id = 'p-' + index;
+    if (p.className) pEl.className = p.className;
 
-  let hasTyped = false;
-
-  function typeLetter(paragraphs, container, pIndex = 0, cIndex = 0) {
-    if (pIndex >= paragraphs.length) {
-      document.getElementById('closeBtn').classList.add('visible');
-      return;
-    }
-    const p = paragraphs[pIndex];
-    let pEl = document.getElementById('p-' + pIndex);
-    if (!pEl) {
-      pEl = document.createElement('p');
-      pEl.id = 'p-' + pIndex;
-      if (p.className) pEl.className = p.className;
-      if (p.label) {
-        const strong = document.createElement('strong');
-        strong.textContent = p.label + ' ';
-        pEl.appendChild(strong);
-        const span = document.createElement('span');
-        span.id = 'span-' + pIndex;
-        pEl.appendChild(span);
-      }
-      container.appendChild(pEl);
-    }
-    const target = p.label ? document.getElementById('span-' + pIndex) : pEl;
-    if (cIndex <= p.text.length) {
-      target.textContent = p.text.slice(0, cIndex);
-      container.parentElement.scrollTop = container.parentElement.scrollHeight;
-      setTimeout(() => typeLetter(paragraphs, container, pIndex, cIndex + 2), 12);
+    if (p.label) {
+      const strong = document.createElement('strong');
+      strong.textContent = p.label + ' ';
+      pEl.appendChild(strong);
+      const span = document.createElement('span');
+      span.id = 'span-' + index;
+      span.textContent = p.text;
+      pEl.appendChild(span);
     } else {
-      setTimeout(() => typeLetter(paragraphs, container, pIndex + 1, 0), 220);
+      pEl.textContent = p.text;
     }
-  }
+
+    container.appendChild(pEl);
+  });
+
+  document.getElementById('closeBtn').classList.add('visible');
+}
+ 
 
   /* ---------- Sonido de sello al romperse ---------- */
   function playCrackSound() {
